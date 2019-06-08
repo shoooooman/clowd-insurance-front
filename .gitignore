@@ -1,5 +1,5 @@
 node_modules/**/*
 .editorconfig
-.idea/**/*
+.idea
 dist/**/*
 
