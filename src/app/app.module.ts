@@ -14,14 +14,18 @@ import {
   MatInputModule,
   MatToolbarModule
 } from '@angular/material';
+import {AppRoutingModule} from './app-routing.module';
+import { InsuranceFormComponent } from './insurance-form/insurance-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InsuranceFormComponent
   ],
   imports: [
     BrowserAnimationsModule,
     CommonModule,
+    AppRoutingModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
