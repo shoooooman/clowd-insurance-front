@@ -13,6 +13,7 @@ export class VoteComponent implements OnInit {
 
   applicantName = '保険太郎'
   insuranceType = 'スマートフォン'
+  insuranceFee = 500
   deadline = '2019/06/08'
 
   depositFee = 0.01
