@@ -1,0 +1,22 @@
+<div>
+  <form #form class="bg-light d-flex justify-content-center p-5">
+    <div class="d-flex flex-column bg-white w-50 p-5">
+      <div class="p-5 d-flex flex-column bg-white m-3 border ">
+        <select type="number" [(ngModel)]="model.kind" name="kind">
+          <option *ngFor="let kind of kinds" [value]="kind.value">{{kind.key}}</option>
+        </select>
+        <select type="date" name="span" [(ngModel)]="model.span">
+          <label for="span">保証期間</label>
+          <option id="span" [value]="span" *ngFor="let span of spans">{{span}}年</option>
+        </select>
+      </div>
+      <div class="p-5 bg-white m-3 border">
+        <div>値段:{{detail(model.kind).price * model.span}}$</div>
+        <div>保証額:{{detail(model.kind).back * model.span }}$</div>
+      </div>
+      <div class="p-5 bg-white m-3 border">
+        <button type="submit" (click)="onSubmit()">保険申請</button>
+      </div>
+    </div>
+  </form>
+</div>
