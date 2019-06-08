@@ -1,0 +1,27 @@
+<div class="bg-light justify-content-center p-5">
+  <div class="w-50 p-5 bg-white">
+    <table class="w-100">
+      <thead>
+      <tr>
+        <th>申請ID</th>
+        <th>申請種目</th>
+        <th>期間</th>
+        <th>金額</th>
+        <th>チャレンジ中</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let insurance of insurances">
+        <td>{{insurance.id}}</td>
+        <td>{{insurance.key}}</td>
+        <td>{{insurance.span}}</td>
+        <td>{{insurance.price}}</td>
+        <td>
+          <a routerLink="/insurance/{{insurance.id}}">{{insurance.status ? '申請中' : '保険中'}}</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,15 @@
+<div>
+  <div>id: {{insurance.id}}</div>
+  <div>申請種類: {{insurance.key}}</div>
+  <div>申請期間: {{insurance.span}}</div>
+  <div>保険金額: {{insurance.price}}</div>
+  <div>ステータス: {{insurance.status ? '申請中' : '保険中'}}</div>
+  <button (click)="submit()" class="btn btn-danger" *ngIf="!insurance.status">チャレンジ申請</button>
+  <div>
+    写真提出
+  </div>
+  <div>
+    <input type="file" (input)="onInput($event)">
+    <img [src]="src" *ngIf="src" width="500px" height="500px">
+  </div>
+</div>
