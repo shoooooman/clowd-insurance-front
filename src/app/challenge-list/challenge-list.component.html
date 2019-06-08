@@ -1,8 +1,15 @@
-<div>
-    <h1>チャレンジリスト</h1>
-    <div *ngFor="let challenge of challenges">
-        <p>保険の種類：{{challenge.key}}</p>
-        <p>保険料：{{challenge.back}}</p>
-        <p>投票期限：{{challenge.deadline}}</p>
+<div class="bg-light p-5">
+    <h2 class="text-primary">チャレンジリスト</h2>
+    <div *ngFor="let challenge of challenges" class="list-group m-3 w-75">
+        <div class="list-group-item list-group-item-action m-1 p-3 shadow d-flex w-auto h-25 align-items-center">
+            <div class="w-50 p-3 ml-3">
+                <h5 class="p-2">チャレンジャー：{{challenge.challenger}}</h5>
+                <h5 class="p-2">種類：{{challenge.key}}</h5>
+                <h5 class="p-2">保険料：{{challenge.back}}</h5>
+                <h5 class="p-2">投票期限：{{challenge.deadline}}</h5>
+            </div>
+            <img src="app/vote/assets/before.png" class="w-25 h-25">
+            <img src="app/vote/assets/after.png" class="w-25 h-25">
+        </div>
     </div>
 </div>
