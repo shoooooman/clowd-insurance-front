@@ -16,11 +16,13 @@ import {
 } from '@angular/material';
 import {AppRoutingModule} from './app-routing.module';
 import { InsuranceFormComponent } from './insurance-form/insurance-form.component';
+import { VoteComponent } from './vote/vote.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InsuranceFormComponent
+    VoteComponent
   ],
   imports: [
     BrowserAnimationsModule,
