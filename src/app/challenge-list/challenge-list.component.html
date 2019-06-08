@@ -1,0 +1,8 @@
+<div>
+    <h1>チャレンジリスト</h1>
+    <div *ngFor="let challenge of challenges">
+        <p>保険の種類：{{challenge.key}}</p>
+        <p>保険料：{{challenge.back}}</p>
+        <p>投票期限：{{challenge.deadline}}</p>
+    </div>
+</div>

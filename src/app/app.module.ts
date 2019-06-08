@@ -17,12 +17,14 @@ import {
 import {AppRoutingModule} from './app-routing.module';
 import {InsuranceFormComponent} from './insurance-form/insurance-form.component';
 import {VoteComponent} from './vote/vote.component';
+import { ChallengeListComponent } from './challenge-list/challenge-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VoteComponent,
-    InsuranceFormComponent
+    InsuranceFormComponent,
+    ChallengeListComponent
   ],
   imports: [
     BrowserAnimationsModule,
