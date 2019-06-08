@@ -20,11 +20,11 @@
     </table>
     <div class="d-flex justify-content-center m-2">
         <div class="border m-1">
-            <img [src]="src" alt="以前の写真" title="以前の写真" width="200px">
+            <img *ngIf="src" [src]="src" alt="以前の写真" title="以前の写真" width="200px">
             <p class="text-center text-secondary pt-3">以前の写真</p>
         </div>
         <div class="border m-1">
-            <img [src]="srcAfter" alt="現在の写真" title="現在の写真" width="200px">
+            <img *ngIf="srcAfter" [src]="srcAfter" alt="現在の写真" title="現在の写真" width="200px">
             <p class="text-center text-info pt-3">現在の写真</p>
         </div>
     </div>
