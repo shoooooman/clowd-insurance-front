@@ -1,4 +1,8 @@
 <mat-toolbar color="primary">Angular Truffle Box</mat-toolbar>
-<app-vote></app-vote>
-<app-insurance-list></app-insurance-list>
-<app-challenge-list></app-challenge-list>
+<div class="container bg-light">
+    <div class="d-flex">
+        <a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/">保険申請</a>
+        <a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/insurances">保険一覧</a>
+    </div>
+    <router-outlet></router-outlet>
+</div>
