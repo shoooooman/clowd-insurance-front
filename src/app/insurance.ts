@@ -24,6 +24,7 @@ export class Insurance {
     id: any;
     kind: number;
     span: number;
+    userId: string;
     status: boolean;
     start: Date;
     finish: Date;

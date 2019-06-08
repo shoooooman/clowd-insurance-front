@@ -1,15 +1,17 @@
 <div class="bg-light p-5">
     <h2 class="text-primary">チャレンジリスト</h2>
-    <div *ngFor="let challenge of challenges" class="list-group m-3 w-75">
-        <div class="list-group-item list-group-item-action m-1 p-3 shadow d-flex w-auto h-25 align-items-center">
-            <div class="w-50 p-3 ml-3">
-                <h5 class="p-2">チャレンジャー：{{challenge.challenger}}</h5>
-                <h5 class="p-2">種類：{{challenge.key}}</h5>
-                <h5 class="p-2">保険料：{{challenge.back}}</h5>
-                <h5 class="p-2">投票期限：{{challenge.deadline}}</h5>
+    <ng-container *ngIf="insurances">
+        <div *ngFor="let challenge of insurances; let i=index" class="list-group m-3 w-75">
+            <div class="list-group-item list-group-item-action m-1 p-3 shadow d-flex w-auto h-25 align-items-center">
+                <div class="w-50 p-3 ml-3">
+                    <h5 class="p-2">チャレンジャー：{{challenge.userId || '保険太郎'}}</h5>
+                    <h5 class="p-2">種類：{{challenge.name}}</h5>
+                    <h5 class="p-2">保険料：{{challenge.payment}}</h5>
+                    <h5 class="p-2">投票期限：{{challenge.finish | date}}</h5>
+                </div>
+                <img *ngIf="srces[i]" [src]="srces[i]" class="w-25 h-25">
+                <img *ngIf="srcesAfter[i]" [src]="srcesAfter[i]" class="w-25 h-25">
             </div>
-            <img src="app/vote/assets/before.png" class="w-25 h-25">
-            <img src="app/vote/assets/after.png" class="w-25 h-25">
         </div>
-    </div>
+    </ng-container>
 </div>

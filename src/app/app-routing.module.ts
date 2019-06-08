@@ -5,12 +5,15 @@ import {InsuranceDetailComponent} from './insurance-detail/insurance-detail.comp
 import {InsuranceFormComponent} from './insurance-form/insurance-form.component';
 import {InsuranceListComponent} from './insurance-list/insurance-list.component';
 import {VoteComponent} from './vote/vote.component';
+import {ChallengeListComponent} from './challenge-list/challenge-list.component';
 
 const routes: Route[] = [
     {path: '', component: InsuranceFormComponent},
     {path: 'insurance/new', component: InsuranceFormComponent},
     {path: 'insurances', component: InsuranceListComponent},
     {path: 'insurance/:id', component: InsuranceDetailComponent},
+    {path: 'challenges', component: ChallengeListComponent},
+    {path: 'vote', component: VoteComponent},
     {path: '', component: VoteComponent}
 ];
 
