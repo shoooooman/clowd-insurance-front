@@ -1,0 +1,67 @@
+[debug] [2019-06-08T05:36:34.348Z] ----------------------------------------------------------------------
+[debug] [2019-06-08T05:36:34.351Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-06-08T05:36:34.352Z] CLI Version:   6.11.0
+[debug] [2019-06-08T05:36:34.352Z] Platform:      win32
+[debug] [2019-06-08T05:36:34.352Z] Node Version:  v10.15.1
+[debug] [2019-06-08T05:36:34.353Z] Time:          Sat Jun 08 2019 14:36:34 GMT+0900 (GMT+09:00)
+[debug] [2019-06-08T05:36:34.353Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-06-08T05:36:34.373Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-08T05:36:34.375Z] > authorizing via signed-in user
+[debug] [2019-06-08T05:36:34.376Z] [iam] checking project clowd-issurance for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-06-08T05:36:34.382Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/clowd-issurance:testIamPermissions  
+
+[debug] [2019-06-08T05:36:35.309Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-08T05:36:35.315Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/clowd-issurance  
+ 
+[debug] [2019-06-08T05:36:35.972Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'clowd-issurance'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-06-08T05:36:35.988Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/clowd-issurance/versions  
+
+[debug] [2019-06-08T05:36:38.761Z] <<< HTTP RESPONSE 200
+[info] i  hosting[clowd-issurance]: beginning deploy...
+[info] i  hosting[clowd-issurance]: found 7 files in dist
+[debug] [2019-06-08T05:36:38.804Z] [hosting] hash cache [ZGlzdA] not populated
+[debug] [2019-06-08T05:36:39.324Z] [hosting] hash cache [ZGlzdA] stored for 7 files
+[debug] [2019-06-08T05:36:39.325Z] [hosting][hash queue][FINAL]
+[debug] [2019-06-08T05:36:39.325Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/clowd-issurance/versions/b48c4ef76a1eea5c:populateFiles  
+ <request body omitted>
+[debug] [2019-06-08T05:36:40.615Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-08T05:36:40.631Z] [hosting][populate queue][FINAL]
+[debug] [2019-06-08T05:36:40.631Z] [hosting] uploads queued: 7
+[debug] [2019-06-08T05:36:44.017Z] [hosting][upload queue][FINAL]
+[info] +  hosting[clowd-issurance]: file upload complete
+[debug] [2019-06-08T05:36:44.021Z] [hosting] deploy completed after 5255ms
+[debug] [2019-06-08T05:36:44.137Z] [
+  {
+    "config": {
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "clowd-issurance"
+    },
+    "site": "clowd-issurance",
+    "version": "sites/clowd-issurance/versions/b48c4ef76a1eea5c"
+  }
+]
+[info] i  hosting[clowd-issurance]: finalizing version...
+[debug] [2019-06-08T05:36:44.151Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/clowd-issurance/versions/b48c4ef76a1eea5c?updateMask=status  
+
+[debug] [2019-06-08T05:36:45.202Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-08T05:36:45.204Z] [hosting] finalized version for clowd-issurance:
+[info] +  hosting[clowd-issurance]: version finalized
+[info] i  hosting[clowd-issurance]: releasing new version...
+[debug] [2019-06-08T05:36:45.211Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/clowd-issurance/releases?version_name=sites/clowd-issurance/versions/b48c4ef76a1eea5c  
+
