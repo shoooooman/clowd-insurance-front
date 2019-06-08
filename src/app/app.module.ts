@@ -14,10 +14,12 @@ import {
   MatInputModule,
   MatToolbarModule
 } from '@angular/material';
+import { VoteComponent } from './vote/vote.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VoteComponent
   ],
   imports: [
     BrowserAnimationsModule,
