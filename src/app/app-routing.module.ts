@@ -11,9 +11,9 @@ const routes: Route[] = [
     {path: '', component: InsuranceFormComponent},
     {path: 'insurance/new', component: InsuranceFormComponent},
     {path: 'insurances', component: InsuranceListComponent},
+    {path: 'challenges/:id/vote', component: VoteComponent},
     {path: 'insurance/:id', component: InsuranceDetailComponent},
     {path: 'challenges', component: ChallengeListComponent},
-    {path: 'vote', component: VoteComponent},
     {path: '', component: VoteComponent}
 ];
 

@@ -1,18 +1,30 @@
 <div class="bg-light justify-content-center p-5">
     <h2 class="text-primary">チャレンジ内容</h2>
-    <table class="table table-striped w-50 m-4">
-        <tr><td>チャレンジャー</td><td>{{applicantName}}</td></tr>
-        <tr><td>種類</td><td>{{insuranceType}}</td></tr>
-        <tr><td>保険料</td><td>{{insuranceFee}}ETH</td></tr>
-        <tr><td>期限</td><td>{{deadline}}</td></tr>
+    <table class="table table-striped w-50 m-4" *ngIf="insurance">
+        <tr>
+            <td>チャレンジャー</td>
+            <td>{{insurance.userId || '保険太郎'}}</td>
+        </tr>
+        <tr>
+            <td>種類</td>
+            <td>{{insurance.name}}</td>
+        </tr>
+        <tr>
+            <td>保険料</td>
+            <td>{{insurance.payment}}ETH</td>
+        </tr>
+        <tr>
+            <td>期限</td>
+            <td>{{insurance.finish | date}}</td>
+        </tr>
     </table>
     <div class="d-flex justify-content-center m-2">
         <div class="border m-1">
-            <img src="app/vote/assets/before.png" alt="以前の写真" title="以前の写真">
+            <img *ngIf="src" [src]="src" alt="以前の写真" title="以前の写真" width="200px">
             <p class="text-center text-secondary pt-3">以前の写真</p>
         </div>
         <div class="border m-1">
-            <img src="app/vote/assets/after.png" alt="現在の写真" title="現在の写真">
+            <img *ngIf="srcAfter" [src]="srcAfter" alt="現在の写真" title="現在の写真" width="200px">
             <p class="text-center text-info pt-3">現在の写真</p>
         </div>
     </div>
