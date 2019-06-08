@@ -32,11 +32,12 @@ export class Insurance {
     deposit: number;
     payment: number;
 
-    constructor(values: { id?, kind?, status?: boolean, start?: Date, finish?: Date } = {}) {
+    constructor(values: { id?, kind?, status?: boolean, start?: Date, finish?: Date, userId?: string } = {}) {
         this.id = values.id;
         this.kind = values.kind;
         this.status = values.status;
         this.start = values.start || new Date();
+        this.userId = values.userId;
         this.finish = values.finish || new Date(Date.now() + 24 * 60 * 60 * 1000);
         if (this.kind !== undefined) {
             this.name = depositSettings[this.kind].name;
