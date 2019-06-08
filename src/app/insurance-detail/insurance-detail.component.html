@@ -1,15 +1,50 @@
-<div>
-  <div>id: {{insurance.id}}</div>
-  <div>申請種類: {{insurance.key}}</div>
-  <div>申請期間: {{insurance.span}}</div>
-  <div>保険金額: {{insurance.price}}</div>
-  <div>ステータス: {{insurance.status ? '申請中' : '保険中'}}</div>
-  <button (click)="submit()" class="btn btn-danger" *ngIf="!insurance.status">チャレンジ申請</button>
-  <div>
-    写真提出
-  </div>
-  <div>
-    <input type="file" (input)="onInput($event)">
-    <img [src]="src" *ngIf="src" width="500px" height="500px">
-  </div>
+<div class="d-flex justify-content-center">
+    <div class="d-flex flex-column bg-white p-3 m-5" *ngIf="insurance">
+        <mat-form-field>
+            <input placeholder="保険ID" readonly matInput [value]="insurance.id">
+        </mat-form-field>
+        <mat-form-field>
+            <input placeholder="申請種類" readonly matInput [value]="insurance.name">
+        </mat-form-field>
+        <mat-form-field>
+            <input placeholder="開始" readonly matInput [value]="insurance.start | date">
+        </mat-form-field>
+        <mat-form-field>
+            <input placeholder="終了" readonly matInput [value]="insurance.finish | date">
+        </mat-form-field>
+        <mat-form-field>
+            <input placeholder="預託金額" readonly matInput [value]="insurance.deposit">
+        </mat-form-field>
+        <mat-form-field>
+            <input placeholder="保険金額" readonly matInput [value]="insurance.payment">
+        </mat-form-field>
+        <mat-form-field>
+            <input placeholder="ステータス" readonly matInput [value]="insurance.status ? 'チャレンジ中' : '保険中'">
+        </mat-form-field>
+        <div style="width: 300px">
+
+        </div>
+        <div>
+            <div class="mb-20px">初期写真</div>
+            <img *ngIf="submittedUrl" [src]="submittedUrl" width="300px">
+        </div>
+        <div *ngIf="!insurance.status">
+            <div class="mb-20px">
+                破損写真
+            </div>
+            <div class="d-flex flex-column">
+                <input type="file" (input)="onInput($event)">
+                <div class="d-flex justify-content-center">
+                    <img [src]="src" *ngIf="src" width="300px" height="300px">
+                </div>
+            </div>
+            <button mat-raised-button mat-button color="accent" (click)="submit()">チャレンジ申請</button>
+        </div>
+        <div *ngIf="insurance.status">
+            <div class="mb-20px">
+                写真提出
+            </div>
+            <img *ngIf="submittedUrl" [src]="src" width="300px">
+        </div>
+    </div>
 </div>

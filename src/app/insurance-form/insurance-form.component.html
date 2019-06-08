@@ -1,22 +1,49 @@
 <div>
-  <form #form class="bg-light d-flex justify-content-center p-5">
-    <div class="d-flex flex-column bg-white w-50 p-5">
-      <div class="p-5 d-flex flex-column bg-white m-3 border ">
-        <select type="number" [(ngModel)]="model.kind" name="kind">
-          <option *ngFor="let kind of kinds" [value]="kind.value">{{kind.key}}</option>
-        </select>
-        <select type="date" name="span" [(ngModel)]="model.span">
-          <label for="span">保証期間</label>
-          <option id="span" [value]="span" *ngFor="let span of spans">{{span}}年</option>
-        </select>
-      </div>
-      <div class="p-5 bg-white m-3 border">
-        <div>値段:{{detail(model.kind).price * model.span}}$</div>
-        <div>保証額:{{detail(model.kind).back * model.span }}$</div>
-      </div>
-      <div class="p-5 bg-white m-3 border">
-        <button type="submit" (click)="onSubmit()">保険申請</button>
-      </div>
-    </div>
-  </form>
+    <form #form class="bg-light d-flex justify-content-center p-5">
+        <div class="d-flex flex-column bg-white w-50 p-5">
+            <div class="p-3 d-flex flex-column">
+                <div class="pb-20px">保険内容</div>
+                <mat-form-field>
+                    <mat-label>
+                        種別
+                    </mat-label>
+                    <mat-select placeholder="種類" type="number" [(ngModel)]="model.kind" name="key">
+                        <mat-option *ngFor="let kind of kinds" [value]="kind.id">{{kind.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!--<mat-form-field>-->
+                <!--<mat-label>保険期間</mat-label>-->
+                <!--<mat-select placeholder="期間" type="date" name="span" [(ngModel)]="model.span">-->
+                <!--<mat-option id="span" [value]="span" *ngFor="let span of spans">{{span}}年</mat-option>-->
+                <!--</mat-select>-->
+                <!--</mat-form-field>-->
+            </div>
+            <hr>
+            <div class="p-3">
+                <div class="pb-20px">保険明細</div>
+                <mat-form-field>
+                    <input placeholder="値段" readonly matInput [value]="detail(model.kind).deposit + '$'">
+                </mat-form-field>
+                <mat-form-field>
+                    <input placeholder="保障額" readonly matInput [value]="detail(model.kind).payment + '$'">
+                </mat-form-field>
+            </div>
+            <div class="p-3">
+                <div>
+                    保険対象物写真
+                </div>
+                <app-file-field (fileInput)="onFileInput($event)">
+                    <img [class.display-none]="!!url" [src]="url" appFileSrc width="400px">
+                    <div>
+                        <input appFileInput type="file">
+                    </div>
+                </app-file-field>
+            </div>
+            <div class="p-3">
+                <button mat-button mat-raised-button color="accent"
+                        type="submit" (click)="onSubmit()">保険申請
+                </button>
+            </div>
+        </div>
+    </form>
 </div>
