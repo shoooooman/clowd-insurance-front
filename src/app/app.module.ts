@@ -22,8 +22,6 @@ import {FileSrcDirective} from './file-field/directive/file-src.directive';
 import {FileInputDirective} from './file-field/directive/file-input.directive';
 import {AngularFireStorage, AngularFireStorageModule} from '@angular/fire/storage';
 import { ChallengeListComponent } from './challenge-list/challenge-list.component';
-import { InsuranceListComponent } from './insurance-list/insurance-list.component';
-import { InsuranceDetailComponent } from './insurance-detail/insurance-detail.component';
 
 
 @NgModule({
