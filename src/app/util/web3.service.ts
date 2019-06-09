@@ -12,7 +12,7 @@ declare let window: any;
 export class Web3Service {
   public ready = false;
   public accountsObservable = new Subject<string[]>();
-  private web3: any;
+  public web3: any;
   private accounts: string[];
 
   constructor() {
