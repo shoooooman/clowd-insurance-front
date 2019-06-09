@@ -19,7 +19,7 @@
             <input placeholder="保険金額" readonly matInput [value]="insurance.payment">
         </mat-form-field>
         <mat-form-field>
-            <input placeholder="ステータス" readonly matInput [value]="insurance.status ? 'チャレンジ中' : '保険中'">
+            <input placeholder="ステータス" readonly matInput [value]="insurance.status ? 'チャレンジ中' : '保険適用中'">
         </mat-form-field>
         <div style="width: 300px">
 
@@ -42,7 +42,7 @@
         </div>
         <div *ngIf="insurance.status">
             <div class="mb-20px">
-                写真提出
+                提出写真
             </div>
             <img *ngIf="submittedUrl" [src]="src" width="300px">
         </div>

@@ -9,7 +9,7 @@
                 <th>終了</th>
                 <th>預託金</th>
                 <th>補償額</th>
-                <th>チャレンジ中</th>
+                <th>ステータス</th>
             </tr>
             </thead>
             <tbody>
@@ -21,7 +21,7 @@
                 <td>{{insurance.deposit}}$</td>
                 <td>{{insurance.payment}}$</td>
                 <td>
-                    <a routerLink="/insurance/{{insurance.id}}">{{insurance.status ? '申請中' : '保険中'}}</a>
+                    <a routerLink="/insurance/{{insurance.id}}">{{insurance.status ? 'チャレンジ中' : '保険適用中'}}</a>
                 </td>
             </tr>
             </tbody>
