@@ -4,6 +4,7 @@ import {tap} from 'rxjs/operators';
 import {Insurance} from '../insurance';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {InsuranceService} from '../insurance.service';
+import {Web3Service} from '../util/web3.service'
 
 @Component({
     selector: 'app-vote',
@@ -26,7 +27,10 @@ export class VoteComponent implements OnInit {
 
     submittedUrl: string;
 
+    id: string;
+
     constructor(
+        private web3Service: Web3Service,
         private activatedRoute: ActivatedRoute,
         private angularFireStorage: AngularFireStorage,
         private insuranceService: InsuranceService
@@ -36,6 +40,7 @@ export class VoteComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.paramMap.subscribe(param => {
             const id = param.get('id');
+            this.id = id;
             this.angularFireStorage.ref(id).getDownloadURL().pipe(
                 tap(url => {
                     this.src = url;
@@ -57,6 +62,26 @@ export class VoteComponent implements OnInit {
                         this.src = url;
                     });
                 }
+            });
+        });
+    }
+
+    submitAcception() {
+        this.web3Service.web3.eth.getAccounts().then(ids => {
+            const address = ids[0];
+            this.web3Service.web3.contract.methods.voteYesTo(address, this.id).send({
+                from: address,
+                value: 10000000000000000
+            });
+        });
+    }
+
+    submitRejection() {
+        this.web3Service.web3.eth.getAccounts().then(ids => {
+            const address = ids[0];
+            this.web3Service.web3.contract.methods.voteNoTo(address, this.id).send({
+                from: address,
+                value: 10000000000000000
             });
         });
     }
