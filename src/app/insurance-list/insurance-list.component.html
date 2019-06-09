@@ -18,8 +18,8 @@
                 <td>{{insurance.name}}</td>
                 <td>{{insurance.start | date}}</td>
                 <td>{{insurance.finish  | date}}</td>
-                <td>{{insurance.deposit}}$</td>
-                <td>{{insurance.payment}}$</td>
+                <td>{{insurance.deposit}} wei</td>
+                <td>{{insurance.payment}} wei</td>
                 <td>
                     <a routerLink="/insurance/{{insurance.id}}">{{insurance.status ? 'チャレンジ中' : '保険適用中'}}</a>
                 </td>

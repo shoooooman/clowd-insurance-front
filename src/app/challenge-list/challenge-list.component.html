@@ -7,7 +7,7 @@
                     <div class="w-50 p-3 ml-3">
                         <h5 class="p-2">チャレンジャー：{{challenge.userId || '保険太郎'}}</h5>
                         <h5 class="p-2">種類：{{challenge.name}}</h5>
-                        <h5 class="p-2">保険料：{{challenge.payment}}</h5>
+                        <h5 class="p-2">保険料：{{challenge.payment}} wei</h5>
                         <h5 class="p-2">投票期限：{{challenge.finish | date}}</h5>
                     </div>
                     <img *ngIf="srces[i]" [src]="srces[i]" class="w-25 h-25">
