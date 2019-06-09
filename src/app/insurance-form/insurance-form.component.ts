@@ -76,8 +76,14 @@ export class InsuranceFormComponent implements OnInit {
           const insurance = new Insurance({id: insId, kind: this.model.kind});
           console.log(this.web3Service.contract);
           console.log(id)
-          this.web3Service.contract.methods.makeInsurance(insurance.deposit, insurance.payment, insId, this.model.start.getSeconds(), this.model.finish.getSeconds()).send({
-            from: id
+          // this.web3Service.contract.methods.makeInsurance(insurance.deposit, insurance.payment, insId, this.model.start.getSeconds(), this.model.finish.getSeconds()).send({
+          this.web3Service.contract.methods.makeInsurance(100, 200, insId, this.model.start.getSeconds(), this.model.finish.getSeconds()+10000000).send({
+              from: id,
+              value: 100
+          }, (err, res) => {
+              console.log("debug");
+              console.error(err);
+              console.error(res);
           });
           this.angularFireStorage.upload(insId, this.file);
         });
