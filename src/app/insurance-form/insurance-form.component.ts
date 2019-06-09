@@ -63,6 +63,7 @@ export class InsuranceFormComponent implements OnInit {
     onSubmit() {
         if (window.confirm('保険を申請しますか')) {
             this.web3Service.getAccounts().then(ids => {
+              console.log(ids)
                 const id = ids[0] || 'abc';
                 this.insuranceService.add({
                     userId: id,
