@@ -12,7 +12,8 @@ declare let window: any;
 export class Web3Service {
   public ready = false;
   public accountsObservable = new Subject<string[]>();
-  private web3: any;
+  public web3: any;
+  public contract: any;
   private accounts: string[];
 
   constructor() {
@@ -35,6 +36,190 @@ export class Web3Service {
     console.log(new Web3(provider));
     this.web3 = new Web3(provider);
     this.web3.currentProvider.enable();
+    this.contract = new this.web3.eth.Contract([
+      {
+        'constant': false,
+        'inputs': [
+          {
+            'name': 'applicant',
+            'type': 'address'
+          },
+          {
+            'name': 'id',
+            'type': 'uint256'
+          }
+        ],
+        'name': 'challengeRequest',
+        'outputs': [],
+        'payable': false,
+        'stateMutability': 'nonpayable',
+        'type': 'function'
+      },
+      {
+        'constant': false,
+        'inputs': [
+          {
+            'name': 'applicant',
+            'type': 'address'
+          },
+          {
+            'name': 'id',
+            'type': 'uint256'
+          }
+        ],
+        'name': 'checkOutApplicant',
+        'outputs': [],
+        'payable': true,
+        'stateMutability': 'payable',
+        'type': 'function'
+      },
+      {
+        'constant': false,
+        'inputs': [
+          {
+            'name': 'deposit',
+            'type': 'uint256'
+          },
+          {
+            'name': 'payment',
+            'type': 'uint256'
+          },
+          {
+            'name': 'id',
+            'type': 'uint256'
+          },
+          {
+            'name': 'startedFrom',
+            'type': 'uint256'
+          },
+          {
+            'name': 'finishedAt',
+            'type': 'uint256'
+          }
+        ],
+        'name': 'makeInsurance',
+        'outputs': [],
+        'payable': true,
+        'stateMutability': 'payable',
+        'type': 'function'
+      },
+      {
+        'constant': false,
+        'inputs': [
+          {
+            'name': 'applicant',
+            'type': 'address'
+          },
+          {
+            'name': 'id',
+            'type': 'uint256'
+          }
+        ],
+        'name': 'voteNoTo',
+        'outputs': [],
+        'payable': true,
+        'stateMutability': 'payable',
+        'type': 'function'
+      },
+      {
+        'constant': false,
+        'inputs': [
+          {
+            'name': 'applicant',
+            'type': 'address'
+          },
+          {
+            'name': 'id',
+            'type': 'uint256'
+          }
+        ],
+        'name': 'voteYesTo',
+        'outputs': [],
+        'payable': true,
+        'stateMutability': 'payable',
+        'type': 'function'
+      },
+      {
+        'constant': false,
+        'inputs': [
+          {
+            'name': 'applicant',
+            'type': 'address'
+          },
+          {
+            'name': 'id',
+            'type': 'uint256'
+          }
+        ],
+        'name': 'withdrawVoter',
+        'outputs': [],
+        'payable': true,
+        'stateMutability': 'payable',
+        'type': 'function'
+      },
+      {
+        'inputs': [],
+        'payable': false,
+        'stateMutability': 'nonpayable',
+        'type': 'constructor'
+      },
+      {
+        'constant': true,
+        'inputs': [],
+        'name': 'amount',
+        'outputs': [
+          {
+            'name': '',
+            'type': 'uint256'
+          }
+        ],
+        'payable': false,
+        'stateMutability': 'view',
+        'type': 'function'
+      },
+      {
+        'constant': true,
+        'inputs': [],
+        'name': 'challengePeriod',
+        'outputs': [
+          {
+            'name': '',
+            'type': 'uint256'
+          }
+        ],
+        'payable': false,
+        'stateMutability': 'view',
+        'type': 'function'
+      },
+      {
+        'constant': true,
+        'inputs': [],
+        'name': 'owner',
+        'outputs': [
+          {
+            'name': '',
+            'type': 'address'
+          }
+        ],
+        'payable': false,
+        'stateMutability': 'view',
+        'type': 'function'
+      },
+      {
+        'constant': true,
+        'inputs': [],
+        'name': 'voteFee',
+        'outputs': [
+          {
+            'name': '',
+            'type': 'uint256'
+          }
+        ],
+        'payable': false,
+        'stateMutability': 'view',
+        'type': 'function'
+      }
+    ], '0x16Bc554e4Ae25282B04c6dC825699a1302260745');
 
     // if (typeof window.web3 !== 'undefined') {
     //   // Use Mist/MetaMask's provider
@@ -47,7 +232,7 @@ export class Web3Service {
     //   // Hack to provide backwards compatibility for Truffle, which uses web3js 0.20.x
     //   Web3.providers.HttpProvider.prototype.sendAsync = Web3.providers.HttpProvider.prototype.send;
     //   // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    //   this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+       this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
     // }
 
     setInterval(() => this.refreshAccounts(), 100);
